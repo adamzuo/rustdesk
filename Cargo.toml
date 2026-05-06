@@ -1,7 +1,7 @@
 [package]
-name = "rustdesk"
+name = "CTG远程控制"
 version = "1.4.6"
-authors = ["rustdesk <info@rustdesk.com>"]
+authors = ["CTG <11@citygroup.com.cn>"]
 edition = "2021"
 build= "build.rs"
 description = "RustDesk Remote Desktop"
@@ -213,7 +213,7 @@ exclude = ["vdi/host", "examples/custom_plugin"]
 libxdo-sys = { path = "libs/libxdo-sys-stub" }
 
 [package.metadata.winres]
-LegalCopyright = "Copyright © 2025 Purslane Ltd. All rights reserved."
+LegalCopyright = "Copyright © 2025 CTG Ltd. All rights reserved."
 ProductName = "RustDesk"
 FileDescription = "RustDesk Remote Desktop"
 OriginalFilename = "rustdesk.exe"
@@ -233,7 +233,7 @@ docopt = "1.1"
 
 [package.metadata.bundle]
 name = "RustDesk"
-identifier = "com.carriez.rustdesk"
+identifier = "cn.com.cittygroup.www"
 icon = ["res/32x32.png", "res/128x128.png", "res/128x128@2x.png"]
 osx_minimum_system_version = "10.14"
 
