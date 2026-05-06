@@ -428,7 +428,7 @@ class _GeneralState extends State<_General> {
 
   Widget theme() {
     final current = MyTheme.getThemeModePreference().toShortString();
-    onChanged(String value) async {
+    void onChanged(String value) async {
       await MyTheme.changeDarkMode(MyTheme.themeModeFromString(value));
       setState(() {});
     }
@@ -864,7 +864,7 @@ class _SafetyState extends State<_Safety> with AutomaticKeepAliveClientMixin {
         setState(() {});
       }
 
-      onChanged(bool? checked) async {
+      void onChanged(bool? checked) async {
         if (checked == false) {
           CommonConfirmDialog(
               gFFI.dialogManager, translate('cancel-2fa-confirm-tip'), () {
@@ -1255,7 +1255,7 @@ class _SafetyState extends State<_Safety> with AutomaticKeepAliveClientMixin {
   }
 
   shareRdp(BuildContext context, bool enabled) {
-    onChanged(bool b) async {
+    void onChanged(bool b) async {
       await bind.mainSetShareRdp(enable: b);
       setState(() {});
     }
@@ -1356,7 +1356,7 @@ class _SafetyState extends State<_Safety> with AutomaticKeepAliveClientMixin {
         hasWhitelist.value = whitelistNotEmpty();
       }
 
-      onChanged(bool? checked) async {
+      void onChanged(bool? checked) async {
         changeWhiteList(callback: update);
       }
 
@@ -1506,7 +1506,7 @@ class _SafetyState extends State<_Safety> with AutomaticKeepAliveClientMixin {
       unlockPin.value = bind.mainGetUnlockPin();
     }
 
-    onChanged(bool? checked) async {
+    void onChanged(bool? checked) async {
       changeUnlockPinDialog(unlockPin.value, update);
     }
 
@@ -1757,7 +1757,7 @@ class _DisplayState extends State<_Display> {
 
   Widget viewStyle(BuildContext context) {
     final isOptFixed = isOptionFixed(kOptionViewStyle);
-    onChanged(String value) async {
+    void onChanged(String value) async {
       await bind.mainSetUserDefaultOption(key: kOptionViewStyle, value: value);
       setState(() {});
     }
@@ -1779,7 +1779,7 @@ class _DisplayState extends State<_Display> {
 
   Widget scrollStyle(BuildContext context) {
     final isOptFixed = isOptionFixed(kOptionScrollStyle);
-    onChanged(String value) async {
+    void onChanged(String value) async {
       await bind.mainSetUserDefaultOption(
           key: kOptionScrollStyle, value: value);
       setState(() {});
@@ -1825,7 +1825,7 @@ class _DisplayState extends State<_Display> {
   }
 
   Widget imageQuality(BuildContext context) {
-    onChanged(String value) async {
+    void onChanged(String value) async {
       await bind.mainSetUserDefaultOption(
           key: kOptionImageQuality, value: value);
       setState(() {});
@@ -1882,7 +1882,7 @@ class _DisplayState extends State<_Display> {
   }
 
   Widget codec(BuildContext context) {
-    onChanged(String value) async {
+    void onChanged(String value) async {
       await bind.mainSetUserDefaultOption(
           key: kOptionCodecPreference, value: value);
       setState(() {});
@@ -1952,7 +1952,7 @@ class _DisplayState extends State<_Display> {
     }
 
     final key = 'privacy-mode-impl-key';
-    onChanged(String value) async {
+    void onChanged(String value) async {
       await bind.mainSetOption(key: key, value: value);
       setState(() {});
     }
@@ -1977,7 +1977,7 @@ class _DisplayState extends State<_Display> {
   Widget otherRow(String label, String key) {
     final value = bind.mainGetUserDefaultOption(key: key) == 'Y';
     final isOptFixed = isOptionFixed(key);
-    onChanged(bool b) async {
+    void onChanged(bool b) async {
       await bind.mainSetUserDefaultOption(
           key: key,
           value: b
@@ -2128,7 +2128,7 @@ class _CheckboxState extends State<_Checkbox> {
 
   @override
   Widget build(BuildContext context) {
-    onChanged(bool b) async {
+    void onChanged(bool b) async {
       await widget.setValue(b);
       setState(() {
         value = widget.getValue();
@@ -2506,7 +2506,7 @@ Widget _OptionCheckBox(
   final isOptFixed = isOptionFixed(key);
   if (reverse) value = !value;
   var ref = value.obs;
-  onChanged(option) async {
+  void onChanged(option) async {
     if (option != null) {
       if (reverse) option = !option;
       final setter =
